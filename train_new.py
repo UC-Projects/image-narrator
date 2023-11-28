@@ -9,14 +9,7 @@ import numpy as np
 import cv2 
 import os
 import glob
-from tensorflow.keras.applications import ResNet50
-incept_model=ResNet50(include_top=True)
-#incept_model.summary()  
-
-from keras.models import Model
-last=incept_model.layers[-2].output
-modele=Model(inputs = incept_model.input,outputs = last)
-modele.summary()    
+  
 
 
 # In[ ]:
@@ -198,7 +191,7 @@ from tensorflow.keras.models import load_model
 loaded_model = load_model('image_narrator_model.h5')
 def generate_caption(image_index):
     # Get image
-    test_feature = modele.predict(get_image(image_index)).reshape(1,2048)
+    test_feature = loaded_model.predict(get_image(image_index)).reshape(1,2048)
     if test_feature is None:
         return
     
