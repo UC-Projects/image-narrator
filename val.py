@@ -39,7 +39,7 @@ val_captions_dict = {}
 val_images_features = {}
 val_count = 0
 
-for caption in val_captions[int(len(val_captions)*0.7):]:
+for caption in val_captions[int(len(val_captions)*0.5)+1:]:
     image_id,caption_text= caption.strip().split('.jpg,')
     image_path = os.path.join(images_path, image_id+'.jpg')
     if(image_path not in val_image_paths):
@@ -206,11 +206,10 @@ y_out_val = np.array(val_variables['y_out_val'], dtype='float64')
 # In[34]:
 
 
-X_val.shape, y_in_val.shape, y_out_val.shape
+print("shape---> ",X_val.shape, y_in_val.shape, y_out_val.shape)
 
 
 # In[ ]:
-
 
 
 

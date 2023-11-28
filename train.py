@@ -53,7 +53,7 @@ captions_dict = {}
 images_features = {}
 count = 0
 
-for caption in captions[1:int(len(captions))]:
+for caption in captions[1:int(len(captions)*0.5)]:
     image_id,caption_text= caption.strip().split('.jpg,')
     image_path = os.path.join(images_path, image_id+'.jpg')
     if(image_path not in image_paths):
@@ -258,7 +258,7 @@ y_out = np.array(train_variables['y_out'], dtype='float64')
 # In[6]:
 
 
-X.shape, y_in.shape, y_out.shape
+print("train shape---->  ",X.shape, y_in.shape, y_out.shape)
 
 
 # In[8]:
@@ -272,7 +272,7 @@ y_out_val = np.array(val_variables['y_out_val'], dtype='float64')
 # In[9]:
 
 
-X_val.shape, y_in_val.shape, y_out_val.shape
+print("val shape ------>",X_val.shape, y_in_val.shape, y_out_val.shape)
 
 
 # In[10]:

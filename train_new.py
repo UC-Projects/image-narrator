@@ -158,7 +158,7 @@ history = model.fit(
     y_out, 
     epochs=100,
     batch_size=128,
-    validation_data=([X_val, y_in_val], y_out_val)
+#    validation_data=([X_val, y_in_val], y_out_val)
 )
 
 
