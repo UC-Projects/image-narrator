@@ -34,9 +34,9 @@ with open('val_variables.pkl', 'rb') as file:
 # In[ ]:
 
 
-X = np.array(train_variables['X'])
-y_in = np.array(train_variables['y_in'], dtype='float64')
-y_out = np.array(train_variables['y_out'], dtype='float64')
+X_train = np.array(train_variables['X_train'])
+y_in_train = np.array(train_variables['y_in_train'], dtype='float64')
+y_out_train = np.array(train_variables['y_out_train'], dtype='float64')
 
 
 # In[ ]:
@@ -154,11 +154,11 @@ model.summary()
 
 
 history = model.fit(
-    [X, y_in], 
-    y_out, 
-    epochs=100,
+    [X_train, y_in_train], 
+    y_out_train, 
+    epochs=150,
     batch_size=128,
-#    validation_data=([X_val, y_in_val], y_out_val)
+    validation_data=([X_val, y_in_val], y_out_val)
 )
 
 
